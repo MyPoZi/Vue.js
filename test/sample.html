@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initial();">
+<h1>Vue.js</h1>
+<div id="msg">
+    <p>{{ message }}</p>
+    <p>{{ inputData }}</p>
+    <input type="text" v-model="inputData">
+    <br>
+    <p>{{ actionMessage }}</p>
+    <input type="text" v-model="text1">
+    <input type="button" v-on:click="doAction" value="click">
+</div>
+</body>
+</html>
