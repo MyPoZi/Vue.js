@@ -8,6 +8,8 @@ function initial() {
             messageCss: '',
             msgArray:[],
             messagePush: '',
+            msgJSON:[],
+            messageJSON: '',
         },
         created: function() {
             this.msgArray.push('sample message.');
@@ -21,8 +23,11 @@ function initial() {
             doActionPush: function () {
                 this.msgArray.push(this.text2);
                 this.messagePush = this.msgArray;
-
-            }
+            },
+            doActionJSON: function () {
+                this.msgJSON.push(this.text3);
+                this.messageJSON = this.msgJSON
+            },
         }
     })
 }
