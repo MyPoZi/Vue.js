@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initial();">
+<h1>Vue.js</h1>
+<div id="msg">
+    足し算
+    <p>{{ result }}</p>
+    <input type="text" v-model="number">
+    <p>税抜価格：<input type="text" v-model="woTax"></p>
+    <p>税込価格：<input type="text" v-model="wTax"></p>
+</div>
+</body>
+</html>

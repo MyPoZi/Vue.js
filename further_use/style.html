@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initial();">
+<h1>Vue.js</h1>
+<div id="msg">
+    <p>クリック</p>
+    <p v-bind:class="{'a':isA, 'b':isB}" v-on:click="change()">クラス操作</p>
+    <p>選択</p>
+    <p v-bind:style="{'color':selfF, 'background':selfB}" v-on:click="changeSelect()">スタイル操作</p>
+    <p><select v-model="selfF">
+        <option>white</option>
+        <option>black</option>
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+    </select>
+    <select v-model="selfB">
+        <option>white</option>
+        <option>black</option>
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+    </select>
+    </p>
+    <p v-if="flg">メッセージ表示操作</p>
+    <div><input type="checkbox" id="ck" v-model="flg"></div>
+    <label for="ck">表示</label>
+    <ul>
+        <li v-for="obj in data">
+            {{ obj }}
+        </li>
+    </ul>
+    <hr>
+    <select size="5" multiple v-model="list">
+        <option>Windows</option>
+        <option>macOS</option>
+        <option>Linux</option>
+        <option>Android</option>
+        <option>iOS</option>
+    </select>
+</div>
+</body>
+</html>

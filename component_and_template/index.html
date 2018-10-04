@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<template id="my-template2">
+    <table>
+        <tr v-for="obj in items.split(',')">
+            <td style="border:1px solid #ccc;padding:0px 10px">
+                {{ obj }}
+            </td>
+        </tr>
+    </table>
+</template>
+<body onload="initial();">
+<h1>Vue.js</h1>
+<div id="msg">
+    <my-cpmponent message="こんにちは！！！！！！"></my-cpmponent>
+
+    <my-cpmponent-2 items="one,two,three"></my-cpmponent-2>
+
+    <div v-red v-bold>赤文字で、太文字</div>
+</div>
+</body>
+</html>
