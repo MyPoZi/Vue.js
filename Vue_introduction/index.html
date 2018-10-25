@@ -8,10 +8,33 @@
 </head>
 <body>
 <div id="app">
-    <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
-    <p>フィルタ処理例 {{1000 | numberWithDelimiter }}</p>
-    <p>合計: {{ totalPrice }}</p>
-    <p>税込み: {{ totalPriceWithTax }}</p>
+    <p>{{ message }}</p>
+    <ul>
+        <li v-for="item in items" :key="item.name">
+            {{ item.name }}の個数: <input type="number" @change="item.quantity = $event.target.value"
+                                       :value="item.quantity" min="0"><!--v-on: = @ , v-bindは省略可能-->
+
+        </li>
+    </ul>
+    <ul>
+        <li v-for="item in items" :key="item.name">
+            {{ item.name }}の個数: <input type="number" v-model="item.quantity" min="0">
+        </li>
+    </ul>
+    <div :style="errorMessageStyle">
+        <li v-for="item in items" :key="item.name">
+            {{ item.name }}: {{ item.price }} x {{ item.quantity }}
+        </li>
+        <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
+        <p>フィルタ処理例 {{1000 | numberWithDelimiter }}</p>
+        <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
+        <p>合計(税込): {{ totalPriceWithTax | numberWithDelimiter }}円</p>
+        <p>商品数合計: {{ sumItems }}</p>
+        <p v-show="!canBuy">
+            {{ 1000 | numberWithDelimiter }}円以上からご購入いただけます
+        </p>
+        <button :disabled="!canBuy" @click="doBuy">購入</button>
+    </div>
 </div>
 <script src="app.js"></script>
 </body>
