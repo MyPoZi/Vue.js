@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
+    <p>フィルタ処理例 {{1000 | numberWithDelimiter }}</p>
+    <p>合計: {{ totalPrice }}</p>
+    <p>税込み: {{ totalPriceWithTax }}</p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
