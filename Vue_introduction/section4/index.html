@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js　SPAのアプリケーション</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--リンク先を`to`プロパティに指定する-->
+    <!--デフォルトで<router-link>は`<a>`タグとしてレンダリングされる-->
+    <router-link to="/top">トップページ</router-link>
+    <router-link to="/users">ユーザ一覧ページ</router-link>
+    <router-view></router-view>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
