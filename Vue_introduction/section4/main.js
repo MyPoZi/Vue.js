@@ -8,7 +8,7 @@ var Auth = {
                     cb(true)
                 }
             } else {
-                    cb(false)
+                cb(false)
             }
         }, 0)
     },
@@ -27,16 +27,7 @@ var Auth = {
 // この関数を用いて擬似的にWeb API経由で情報を取得したようにする
 var getUsers = function (callback) {
     setTimeout(function () {
-        callback(null, [
-            {
-                id: 1,
-                name: 'MyPoZi'
-            },
-            {
-                id: 2,
-                name: 'MyZiPo'
-            }
-        ])
+        callback(null, userData)
     }, 1000)
 }
 
@@ -88,7 +79,7 @@ var Login = {
         </form>
     </div>
     `,
-    data: function() {
+    data: function () {
         return {
             email: 'vue@example.com',
             pass: '',
@@ -235,7 +226,7 @@ var UserList = {
         </div>
         <!--usersがロードされたら各ユーザーの名前を表示する-->
         <div v-for="user in users" :key="user.id">
-            <h2>{{ user.name }}</h2>
+            <router-link :to="{ path: '/users/' + user.id }"><h2>{{ user.name }}</h2></router-link>
         </div>
     </div>
     `,
@@ -299,7 +290,7 @@ var router = new VueRouter({
                 if (!Auth.loggedIn()) {
                     next({
                         path: '/login',
-                        query: { redirect: to.fullPath }
+                        query: {redirect: to.fullPath}
                     })
                 } else {
                     // 認証済みであればそのまま新規ユーザ作成ページへ進む
@@ -312,8 +303,8 @@ var router = new VueRouter({
             component: UserDetail
         },
         {
-          path: '/login',
-          component: Login
+            path: '/login',
+            component: Login
         },
         {
             path: '/logout',
@@ -321,11 +312,18 @@ var router = new VueRouter({
                 Auth.logout()
                 next('/')
             }
+        },
+        {
+            path: '*',
+            redirect: '/top'
         }
     ]
 })
 
 // ルータのインスタンスをrootとなるVueインスタンスに渡す
 var app = new Vue({
+    data: {
+        Auth: Auth
+    },
     router: router
 }).$mount('#app')

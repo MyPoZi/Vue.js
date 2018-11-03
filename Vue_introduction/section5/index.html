@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js　SPAのアプリケーション</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+</head>
+
+<body>
+<div id="app">
+    <p><input type="text" v-model="animationClass"></p>
+    <button @click="isShown = !isShown">表示の切り替え</button>
+    <transition>
+        <P v-show="isShown">Hello, World!</P>
+    </transition>
+    <!--トランジションアニメーションで付け替えするクラスを変更するために
+    enter-active-classプロパティとleave-active-classプロパティを指定する-->
+    <transition
+            :enter-active-class="activeClass"
+            :leave-active-class="activeClass"
+    >
+        <p v-show="isShown">Hello, World!</p>
+    </transition>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
